@@ -20,12 +20,30 @@ function draw() {
     for (var j = 0; j < flowers.length; j++) {
       if (drops[i].hits(flowers[j])) {
         flowers[j].grow();
-        //drops[i].evaporate();
+        drops[i].evaporate();
       }
     }
   }
+
+  var right = false;
   for (var i = 0; i < flowers.length; i++) {
     flowers[i].show();
+    flowers[i].move();
+    if (flowers[i].x > width) {
+      right = true;
+    }
+  }
+
+  if (right) {
+    for (var i = 0; i < flowers.length; i++) {
+      flowers[i].shiftDown();
+    }
+  }
+
+  for (var i = drops.length - 1; i >= 0; i--) {
+    if (drops[i].toDelete) {
+      drops.splice(i, 1);
+    }
   }
 }
 
