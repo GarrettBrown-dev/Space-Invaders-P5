@@ -5,4 +5,8 @@ function Ship() {
     fill(255);
     rect(this.x, height - 20, 20, 20);
   };
+
+  this.move = function (dir) {
+    this.x += dir;
+  };
 }
