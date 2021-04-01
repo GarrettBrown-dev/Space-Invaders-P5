@@ -25,16 +25,17 @@ function draw() {
     }
   }
 
-  var right = false;
+  var edge = false;
+
   for (var i = 0; i < flowers.length; i++) {
     flowers[i].show();
     flowers[i].move();
-    if (flowers[i].x > width) {
+    if (flowers[i].x > width || flowers[i].x < 0) {
       right = true;
     }
   }
 
-  if (right) {
+  if (edge) {
     for (var i = 0; i < flowers.length; i++) {
       flowers[i].shiftDown();
     }
