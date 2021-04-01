@@ -17,6 +17,12 @@ function draw() {
   for (var i = 0; i < drops.length; i++) {
     drops[i].show();
     drops[i].move();
+    for (var j = 0; j < flowers.length; j++) {
+      if (drops[i].hits(flowers[j])) {
+        flowers[j].grow();
+        //drops[i].evaporate();
+      }
+    }
   }
   for (var i = 0; i < flowers.length; i++) {
     flowers[i].show();
