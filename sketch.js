@@ -25,7 +25,7 @@ function draw() {
 
 function keyPressed() {
   if (key === " ") {
-    var drop = new Drop(width / 2, height / 2);
+    var drop = new Drop(ship.x, height);
     drops.push(drop);
   }
   if (keyCode === RIGHT_ARROW) {
